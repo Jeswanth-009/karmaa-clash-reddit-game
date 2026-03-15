@@ -1,0 +1,108 @@
+:root {
+  --reddit-orange: #FF4500;
+  --bg-dark: #030303;
+  --card-bg: #1A1A1B;
+  --text-main: #D7DADC;
+}
+
+body, html {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+/* BATTLE ARENA */
+.battle-arena {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Stack on mobile */
+  gap: 15px;
+  position: relative;
+  justify-content: center;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:active { transform: scale(0.98); }
+.card.picked { border-color: var(--reddit-orange); background: #2D1810; }
+
+.sub { color: #818384; font-size: 0.9rem; margin-bottom: 10px; }
+.title { font-size: 1.2rem; font-weight: 600; line-height: 1.4; }
+
+.votes {
+  margin-top: 15px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--reddit-orange);
+}
+
+.animate-pop { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+/* VS CIRCLE */
+.vs-badge {
+  background: var(--reddit-orange);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid var(--bg-dark);
+  z-index: 10;
+}
+
+.instruction { margin-top: 20px; color: #888; font-style: italic; min-height: 30px;}
+
+/* END SCREEN */
+.end-screen { justify-content: center; gap: 20px; }
+.final-score { font-size: 5rem; color: var(--reddit-orange); font-weight: 800; }
+.btn-primary {
+  background: var(--reddit-orange);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+@keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
